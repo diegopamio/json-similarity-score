@@ -16,6 +16,8 @@ jobs:
           node-version: '12.14.0'
       - name: Install Dependencies
         run: npm ci
+      - name: Lint
+        run: npm run lint
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

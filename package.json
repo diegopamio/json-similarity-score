@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -11,6 +13,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "next": "9.5.5",
+    "prop-types": "^15.7.2",
     "react": "17.0.0",
     "react-dom": "17.0.0"
   },
@@ -20,6 +23,14 @@
     "@semantic-release/git": "^9.0.0",
     "@semantic-release/github": "^7.1.1",
     "@semantic-release/release-notes-generator": "^9.0.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "semantic-release": "^17.2.1"
   }
 }
