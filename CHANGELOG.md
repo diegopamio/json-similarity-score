@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/diegopamio/json-similarity-score/compare/v1.0.1...v1.0.2) (2020-10-22)
+
+
+### Bug Fixes
+
+* also run server before executing e2e tests in GH action ([7a4fd84](https://github.com/diegopamio/json-similarity-score/commit/7a4fd84b4805c471df427724304593b8a06061cf))
+* run server before executing e2e tests ([f2e84c9](https://github.com/diegopamio/json-similarity-score/commit/f2e84c92a1c9ddb7ba6dec9a0dcb606e930b83ca))
+
 ## [1.0.1](https://github.com/diegopamio/json-similarity-score/compare/v1.0.0...v1.0.1) (2020-10-22)
 
 
