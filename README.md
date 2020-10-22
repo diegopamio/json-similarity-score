@@ -2,6 +2,7 @@
 [![Code Style](https://badgen.net/badge/code%20style/airbnb/ff5a5f?icon=airbnb)](https://github.com/airbnb/javascript)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 ![Release each commit to master](https://github.com/diegopamio/json-similarity-score/workflows/Release%20each%20commit%20to%20master/badge.svg)
+[![json-similarity-score](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/detailed/cvb1my&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/cvb1my/runs)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

@@ -4,16 +4,19 @@ module.exports = {
     es6: true,
     node: true,
     'jest/globals': true,
+    'cypress/globals': true,
   },
   extends: [
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:cypress/recommended',
     'airbnb',
   ],
   parser: 'babel-eslint',
   plugins: [
     'react',
     'react-hooks',
+    'cypress',
     'jest',
   ],
   settings: {
