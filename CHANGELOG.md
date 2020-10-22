@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/diegopamio/json-similarity-score/compare/v1.0.0...v1.0.1) (2020-10-22)
+
+
+### Bug Fixes
+
+* use github actions to deploy in vercel ([fa6dff6](https://github.com/diegopamio/json-similarity-score/commit/fa6dff66e48e50c27192c35453d08f3857db289d))
+
 # 1.0.0 (2020-10-21)
 
 
