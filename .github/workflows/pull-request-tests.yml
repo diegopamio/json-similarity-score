@@ -1,11 +1,8 @@
+name: Lint and Tests
 on:
-  push:
-    branches:
-      - master
-name: Deploy and Release each commit to master
+  [pull_request]
 jobs:
-  deploy:
-    name: deploy
+  lint-and-tests-run:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -42,14 +39,4 @@ jobs:
           coverageLocations: |
             ${{github.workspace}}/jest-coverage/lcov.info:lcov
             ${{github.workspace}}/coverage/lcov.info:lcov
-      - name: Deploy
-        uses: xmflsct/action-vercel-deployment@v0.5.3
-        with:
-          vercelToken: ${{ secrets.VERCEL_TOKEN }}
-          vercelOrgId: ${{ secrets.VERCEL_ORG_ID }}
-          vercelProjectId: ${{ secrets.VERCEL_PROJECT_ID }}
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run release
+
