@@ -1,0 +1,9 @@
+version: "2"
+plugins:
+  eslint:
+    enabled: true
+    channel: eslint-7
+exclude_patterns:
+  - "**/node_modules/"
+  - "**/cypress/"
+  - "**/__tests__/"
