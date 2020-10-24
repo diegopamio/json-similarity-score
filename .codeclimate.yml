@@ -7,3 +7,6 @@ exclude_patterns:
   - "**/node_modules/"
   - "**/cypress/"
   - "**/__tests__/"
+  - "**/coverage/"
+  - "**/jest-coverage/"
+  - "**/.next/"
