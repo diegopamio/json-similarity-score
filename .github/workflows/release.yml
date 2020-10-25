@@ -42,6 +42,8 @@ jobs:
           coverageLocations: |
             ${{github.workspace}}/jest-coverage/lcov.info:lcov
             ${{github.workspace}}/coverage/lcov.info:lcov
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
       - name: Deploy
         uses: xmflsct/action-vercel-deployment@v0.5.3
         with:

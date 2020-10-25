@@ -39,4 +39,6 @@ jobs:
           coverageLocations: |
             ${{github.workspace}}/jest-coverage/lcov.info:lcov
             ${{github.workspace}}/coverage/lcov.info:lcov
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
 
