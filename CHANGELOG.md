@@ -1,3 +1,17 @@
+# [1.1.0](https://github.com/diegopamio/json-similarity-score/compare/v1.0.2...v1.1.0) (2020-10-26)
+
+
+### Bug Fixes
+
+* add missing <Head /> in _document.js ([04cad9b](https://github.com/diegopamio/json-similarity-score/commit/04cad9bc4efbac60af37309b574006928879c1a0))
+* implement workarounds for eslint-babel parser bugs ([8990f6e](https://github.com/diegopamio/json-similarity-score/commit/8990f6ec9c0646c4921b48770d57ed5df4368ca3))
+
+
+### Features
+
+* **index:** add drag-drop file upload ([cd3fd46](https://github.com/diegopamio/json-similarity-score/commit/cd3fd46ca5523722d7f3698cac7f6e0dc8a1a5f8))
+* add codeclimate config ([ef96767](https://github.com/diegopamio/json-similarity-score/commit/ef967671eb4284ca4534f949afb0f2d5c690c253))
+
 ## [1.0.2](https://github.com/diegopamio/json-similarity-score/compare/v1.0.1...v1.0.2) (2020-10-22)
 
 
