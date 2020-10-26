@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/diegopamio/json-similarity-score/compare/v1.1.0...v1.2.0) (2020-10-26)
+
+
+### Bug Fixes
+
+* revert @babel/eslint-parser as codeclimate doesn't support it ([c7eb848](https://github.com/diegopamio/json-similarity-score/commit/c7eb8482c37e303de7bef04bbad66c367fb9fc0c))
+
+
+### Features
+
+* add simplest scoring calculation ([e7b07ff](https://github.com/diegopamio/json-similarity-score/commit/e7b07ff91a035c7235c7b6bb77335e638d28ce55))
+
 # [1.1.0](https://github.com/diegopamio/json-similarity-score/compare/v1.0.2...v1.1.0) (2020-10-26)
 
 
