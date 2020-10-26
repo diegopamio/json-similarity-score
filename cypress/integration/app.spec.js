@@ -84,7 +84,21 @@ describe('The scoring app', () => {
         cy.contains('Compare').click();
 
         // assert
-        cy.contains('Score: 1');
+        cy.contains('Score: 100.00%');
+      });
+    });
+    context('when the files are different', () => {
+      it('should show the score as a percentage', () => {
+        // arrange
+        const fileNameA = 'BreweriesMaster.json';
+        const fileNameB = 'BreweriesSample4.json';
+        cy.drop('File A', fileNameA);
+        cy.drop('File B', fileNameB);
+        // act
+        cy.contains('Compare').click();
+
+        // assert
+        cy.contains('Score: 35.71%');
       });
     });
   });
