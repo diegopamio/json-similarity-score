@@ -12,13 +12,12 @@ module.exports = {
     'plugin:cypress/recommended',
     'airbnb',
   ],
-  parser: '@babel/eslint-parser',
+  parser: 'babel-eslint',
   plugins: [
     'react',
     'react-hooks',
     'cypress',
     'jest',
-    '@babel',
   ],
   settings: {
     'import/resolver': {

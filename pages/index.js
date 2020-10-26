@@ -7,6 +7,7 @@ import { DropzoneArea } from 'material-ui-dropzone';
 import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import axios from 'axios';
 
 export default function Home() {
   const [jsonA, setJsonA] = useState();
@@ -24,7 +25,17 @@ export default function Home() {
   };
 
   const compare = () => {
-    setScore(jsonA === jsonB ? 1 : 0);
+    axios
+      .post('/api/score', {
+        jsonA,
+        jsonB,
+      })
+      .then(({ data }) => {
+        setScore(`${(data.scoreNumber * 100).toFixed(2)}%`);
+      })
+      .catch((err) => {
+        console.log('error in request', err); // ToDo: properly catch errors.
+      });
   };
 
   return (
@@ -47,6 +58,7 @@ export default function Home() {
               useChipsForPreview
               dropzoneText="File A"
               filesLimit={0}
+              getFileAddedMessage={(fileName) => `${fileName} successfully added.`}
               previewGridProps={{ container: { justify: 'center', direction: 'row' } }}
               acceptedFiles={['application/json']}
             />
@@ -69,6 +81,7 @@ export default function Home() {
               useChipsForPreview
               dropzoneText="File B"
               filesLimit={0}
+              getFileAddedMessage={(fileName) => `${fileName} successfully added.`}
               previewGridProps={{ container: { justify: 'center', direction: 'row' } }}
               acceptedFiles={['application/json']}
             />

@@ -26,13 +26,9 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'cypress-file-upload';
 
-Cypress.Commands.add('drop', (containerName, fileName, okMessage = `File ${fileName} successfully added.`) => {
+Cypress.Commands.add('drop', (containerName, fileName) => {
   const json = `acceptance/${fileName}`;
-
   cy.contains(containerName).attachFile(json, { subjectType: 'drag-n-drop' });
-  cy.contains(containerName).parent().parent().contains(fileName);
-  cy.contains(okMessage).get('.MuiIconButton-label').click();
-  cy.contains(okMessage).should('not.exist');
   // eslint-disable-next-line cypress/no-unnecessary-waiting
   cy.wait(500); // Drag-dropping works in mysterious ways
 });
