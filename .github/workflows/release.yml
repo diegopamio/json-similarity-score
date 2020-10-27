@@ -36,12 +36,14 @@ jobs:
           build: npm run build
           start: npm start
       - name: Report coverage to CC
-        uses: paambaati/codeclimate-action@v2.7.4
-        with:
-          coverageLocations: |
-            ${{github.workspace}}/*.lcov:lcov
+        uses: paambaati/codeclimate-action@v2.6.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: true
+          coverageLocations: |
+            ${{github.workspace}}/jest-coverage/lcov.info:lcov
+            ${{github.workspace}}/coverage/lcov.info:lcov
       - name: Deploy
         uses: xmflsct/action-vercel-deployment@v0.5.3
         with:
