@@ -71,7 +71,7 @@ describe('The scoring app', () => {
     context('before comparing', () => {
       it('should show "N/A" as result', () => {
         // assert
-        cy.contains('Score: N/A');
+        cy.contains('N/A');
       });
     });
     context('when the files are the same', () => {
@@ -84,7 +84,7 @@ describe('The scoring app', () => {
         cy.contains('Compare').click();
 
         // assert
-        cy.contains('Score: 100.00%');
+        cy.contains('100.0%');
       });
     });
     context('when the files are different', () => {
@@ -98,7 +98,7 @@ describe('The scoring app', () => {
         cy.contains('Compare').click();
 
         // assert
-        cy.contains('Score: 35.71%');
+        cy.contains('35.7%');
       });
     });
   });

@@ -34,11 +34,11 @@ jobs:
           start: npm start
       - name: Report coverage to CC
         uses: paambaati/codeclimate-action@v2.6.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
           coverageCommand: true
           coverageLocations: |
             ${{github.workspace}}/jest-coverage/lcov.info:lcov
             ${{github.workspace}}/coverage/lcov.info:lcov
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
 
