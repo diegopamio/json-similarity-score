@@ -45,18 +45,14 @@ const Home = () => {
       <Container>
         <Box m={4}>
           <Grid container spacing={2} justify="center">
-            <Grid xs={4} item>
-              <JsonFileDropContainer
-                onChange={handleChange(setJsonA)}
-                text="File A"
-              />
-            </Grid>
-            <Grid xs={4} item>
-              <JsonFileDropContainer
-                onChange={handleChange(setJsonB)}
-                text="File B"
-              />
-            </Grid>
+            {
+              [{ name: 'File  A', setJsonFn: setJsonA }, { name: 'File  B', setJsonFn: setJsonB }]
+                .map((dropzone) => (
+                  <Grid xs={4} item key={dropzone.name}>
+                    <JsonFileDropContainer onChange={handleChange(dropzone.setJsonFn)} text={dropzone.name} />
+                  </Grid>
+                ))
+            }
             <Grid xs={3} item>
               <Button fullWidth variant="contained" color="primary" onClick={compare} disabled={!jsonA || !jsonB}>
                 <CompareIcon />
