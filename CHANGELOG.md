@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/diegopamio/json-similarity-score/compare/v1.3.0...v1.4.0) (2020-10-29)
+
+
+### Features
+
+* add "For Me on Github" banner ([c423180](https://github.com/diegopamio/json-similarity-score/commit/c423180a4f73f5ff006cf42303ef3bfb7d5fd2f5))
+* make the UI responsive ([0c3e386](https://github.com/diegopamio/json-similarity-score/commit/0c3e38665e43c34d59532a32afea55d7a726bee7))
+
 # [1.3.0](https://github.com/diegopamio/json-similarity-score/compare/v1.2.0...v1.3.0) (2020-10-29)
 
 
