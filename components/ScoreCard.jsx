@@ -15,9 +15,11 @@ export const ScoreCard = ({ score }) => (
   <Box mt={2} height="calc(100% - 52px)">
     <Card variant="outlined" height="100%">
       <CardHeader title="Score" subheader="From 0% to 100%" />
-      <CardContent align="center">
-        <Typography component="span" variant="h3" color="primary">
-          {typeof (score) === 'undefined' ? 'N/A' : `${(score * 100).toFixed(1)}`}
+      <CardContent align="center" color="#f00">
+        <Typography component="span" variant="h3" color="textSecondary">
+          <strong>
+            {typeof (score) === 'undefined' ? 'N/A' : `${(score * 100).toFixed(1)}`}
+          </strong>
         </Typography>
         {typeof (score) !== 'undefined' && (
           <Typography component="span" variant="h6" color="primary">
