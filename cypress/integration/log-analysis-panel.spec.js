@@ -67,10 +67,40 @@ describe('The comparison analysis panel', () => {
             cy.contains('.MuiCardHeader-root', comparisonAnalysisText).find('button').click();
 
             // act
-            cy.contains('is PARTIALLY EQUAL (5 / 14)').click();
+            cy.contains('is PARTIALLY EQUAL').click();
 
             // assert
-            cy.contains('breweries');
+            cy.contains('breweries').should('exist');
+          });
+        });
+      });
+      describe('each child node', () => {
+        describe('when partially equal', () => {
+          it('should show the quotient ', () => {
+            // arrange
+            cy.contains('.MuiCardHeader-root', comparisonAnalysisText).find('button').click();
+
+            // act
+            cy.contains('is PARTIALLY EQUAL').click();
+
+            // assert
+            cy.contains('(5 / 14)').should('exist');
+          });
+        });
+        describe('when comparing arrays', () => {
+          it('should pretty format the array as "Array of ## items"', () => {
+            // arrange
+            cy.contains('.MuiCardHeader-root', comparisonAnalysisText).find('button').click();
+            cy.contains('is PARTIALLY EQUAL').click();
+            cy.contains('breweries').click();
+
+            // act
+            cy.contains('Item 0').click();
+
+            // act
+
+            // assert
+            cy.contains('Array of 3');
           });
         });
       });
