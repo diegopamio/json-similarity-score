@@ -22,6 +22,10 @@ export default function MyApp(props) {
       <Head>
         <title>My page</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+        <meta
+          name="description"
+          content="A simple tool for developers to compare json files, with detailed analysis and overall score."
+        />
       </Head>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
