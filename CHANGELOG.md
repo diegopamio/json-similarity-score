@@ -1,3 +1,16 @@
+# [1.5.0](https://github.com/diegopamio/json-similarity-score/compare/v1.4.0...v1.5.0) (2020-10-29)
+
+
+### Bug Fixes
+
+* add meta description ([c0cc089](https://github.com/diegopamio/json-similarity-score/commit/c0cc08994baa95f2b6adc2f7a156a4183109e6a8))
+* increase text contrast for brand colored text ([d5de3a6](https://github.com/diegopamio/json-similarity-score/commit/d5de3a67dce4b91cb4ca03e1b2ba835212edd64e))
+
+
+### Features
+
+* add params checking in the api/score endpoint ([2f93f4b](https://github.com/diegopamio/json-similarity-score/commit/2f93f4b7c821dceae27f925a0418cdc6b1d2804f))
+
 # [1.4.0](https://github.com/diegopamio/json-similarity-score/compare/v1.3.0...v1.4.0) (2020-10-29)
 
 
