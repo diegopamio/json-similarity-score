@@ -1,3 +1,11 @@
+## [1.5.1](https://github.com/diegopamio/json-similarity-score/compare/v1.5.0...v1.5.1) (2020-10-29)
+
+
+### Bug Fixes
+
+* configure cypress code coverage ([5545866](https://github.com/diegopamio/json-similarity-score/commit/5545866737f5a9f6d7c8c9a87d065f6eeaa331f1))
+* use aria to test for expand button state ([8c3bcbd](https://github.com/diegopamio/json-similarity-score/commit/8c3bcbd37021efdf6d09d33855cd712faa63ea94))
+
 # [1.5.0](https://github.com/diegopamio/json-similarity-score/compare/v1.4.0...v1.5.0) (2020-10-29)
 
 
