@@ -135,8 +135,8 @@ export const TreeItemLabel = ({
 TreeItemLabel.propTypes = {
   metaData: PropTypes.shape({
     key: PropTypes.string.isRequired,
-    valueOfA: PropTypes.oneOfType(['string', 'number', 'object']).isRequired,
-    valueOfB: PropTypes.oneOfType(['string', 'number', 'object']).isRequired,
+    valueOfA: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]).isRequired,
+    valueOfB: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]).isRequired,
     typeOfA: PropTypes.string.isRequired,
     typeOfB: PropTypes.string.isRequired,
   }).isRequired,
