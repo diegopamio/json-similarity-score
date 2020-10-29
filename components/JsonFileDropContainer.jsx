@@ -7,11 +7,18 @@ import FileCopyTwoToneIcon from '@material-ui/icons/FileCopyTwoTone';
 
 const useStyles = makeStyles((theme) => ({
   dropzone: {
-    minHeight: '235px',
+    [theme.breakpoints.up('sm')]: {
+      minHeight: '235px',
+    },
+    minHeight: '135px',
     border: 'none',
     '& p': {
-      marginTop: theme.spacing(3),
-      marginBottom: theme.spacing(3),
+      [theme.breakpoints.up('sm')]: {
+        marginTop: theme.spacing(3),
+        marginBottom: theme.spacing(3),
+      },
+      marginTop: theme.spacing(1),
+      marginBottom: theme.spacing(1),
     },
     backgroundColor: theme.palette.background.accent,
     '& .MuiDropzoneArea-icon': {

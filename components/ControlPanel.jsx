@@ -38,12 +38,12 @@ export const ControlPanel = ({ onScoreChange }) => {
       {
         [{ name: 'File  A', setJsonFn: setJsonA }, { name: 'File  B', setJsonFn: setJsonB }]
           .map((dropzone) => (
-            <Grid xs={4} item key={dropzone.name}>
+            <Grid xs={12} sm={6} md={4} item key={dropzone.name}>
               <JsonFileDropContainer onChange={handleChange(dropzone.setJsonFn)} text={dropzone.name} />
             </Grid>
           ))
       }
-      <Grid xs={3} item>
+      <Grid md={3} xs={12} item>
         <Button fullWidth variant="contained" color="primary" onClick={compare} disabled={!jsonA || !jsonB}>
           <CompareIcon />
           Compare

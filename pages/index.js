@@ -17,7 +17,7 @@ const Home = () => {
       </Head>
       <Header />
       <Container>
-        <Box m={4}>
+        <Box mx={{ xs: 0, md: 4 }} mt={2}>
           <ControlPanel onScoreChange={handleScoreChange} />
           {scoringResults.metaData && <ScoreAnalysisLogPanel scoreAnalysisData={scoringResults} />}
         </Box>

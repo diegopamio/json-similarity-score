@@ -26,12 +26,7 @@ export default function MyApp(props) {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <GitHubForkRibbon
-          position="right"
-          color="green"
-          href="//github.com/diegopamio/json-similarity-score"
-          target="_blank"
-        >
+        <GitHubForkRibbon href="//github.com/diegopamio/json-similarity-score" target="_blank">
           Fork me on GitHub
         </GitHubForkRibbon>
         {/* eslint-disable-next-line react/jsx-props-no-spreading */}

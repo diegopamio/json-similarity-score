@@ -6,7 +6,9 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
-import { CardContent, CardHeader } from '@material-ui/core';
+import {
+  CardContent, CardHeader, useMediaQuery, useTheme,
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
@@ -55,13 +57,15 @@ export const ScoreAnalysisLogPanel = ({
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
     <Grid container spacing={2} justify="center">
-      <Grid item xs={11}>
+      <Grid item xs={12} md={11}>
         <Card variant="outlined" widt={100} height="500px">
           <CardHeader
-            title="Comparison Analysis"
+            title={`${matches ? 'Comparison ' : ' '} Analysis`}
             action={(
               <IconButton
                 className={clsx(classes.expand, {

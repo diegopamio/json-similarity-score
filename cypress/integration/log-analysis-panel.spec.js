@@ -1,4 +1,4 @@
-const comparisonAnalysisText = 'Comparison Analysis';
+const comparisonAnalysisText = ' Analysis';
 let panel;
 let analysisTree;
 

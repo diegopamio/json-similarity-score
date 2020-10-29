@@ -10,14 +10,11 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { green, orange, red } from '@material-ui/core/colors';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import * as PropTypes from 'prop-types';
+import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles((theme) => ({
   code: {
     fontWeight: theme.typography.fontWeightBold,
-  },
-  labelIcon: {
-    marginRight: theme.spacing(1),
-    minWidth: '24px',
   },
   listItem: {
     paddingLeft: 0,
@@ -123,10 +120,13 @@ export const TreeItemLabel = ({
 
         {getEvaluationText(metaData, count, matched)}
       </ListItemText>
-      <ListItemIcon>
-        {matched > 0 && matched < count
-        && <BorderLinearProgress variant="determinate" value={(matched / count) * 100} />}
-      </ListItemIcon>
+      <Box display={{ xs: 'none', sm: 'block' }}>
+        <ListItemIcon>
+          {matched > 0 && matched < count
+          && <BorderLinearProgress variant="determinate" value={(matched / count) * 100} />}
+        </ListItemIcon>
+
+      </Box>
 
     </ListItem>
   );
