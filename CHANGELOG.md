@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/diegopamio/json-similarity-score/compare/v1.2.0...v1.3.0) (2020-10-29)
+
+
+### Features
+
+* add comparison analysis tree ([a104643](https://github.com/diegopamio/json-similarity-score/commit/a1046430af75fd8a11d543e71a2d704ebdc79421))
+
 # [1.2.0](https://github.com/diegopamio/json-similarity-score/compare/v1.1.0...v1.2.0) (2020-10-26)
 
 
