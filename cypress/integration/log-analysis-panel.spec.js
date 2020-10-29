@@ -1,6 +1,5 @@
 const comparisonAnalysisText = ' Analysis';
 let panel;
-let analysisTree;
 
 describe('The comparison analysis panel', () => {
   beforeEach(() => {
@@ -37,8 +36,8 @@ describe('The comparison analysis panel', () => {
         });
         it('should be facing down', () => {
           // assert
-          cy.contains('.MuiCardHeader-root', comparisonAnalysisText).find('button')
-            .should('have.css', 'transform', 'matrix(1, 0, 0, 1, 0, 0)');
+          cy.contains('.MuiCardHeader-root', comparisonAnalysisText)
+            .find('button[aria-expanded=false]').should('exist');
         });
         describe('when clicked', () => {
           let panelHeader;
@@ -48,34 +47,30 @@ describe('The comparison analysis panel', () => {
           });
           it('should be facing up', () => {
             // assert
-            panelHeader.find('button')
-              .should('have.css', 'transform', 'matrix(-1, 1.22465e-16, -1.22465e-16, -1, 0, 0)');
+            panelHeader.get('button[aria-expanded=true]').should('exist');
           });
           it('should make the analysis log panel visible', () => {
             // assert
             cy.contains('PARTIALLY EQUAL').should('be.visible');
           });
           describe('the analysis tree', () => {
-            beforeEach(() => {
-              analysisTree = panel.find(/^\/$/);
-            });
             it('should be visible', () => {
-              analysisTree.should('be.visible');
+              cy.contains('is PARTIALLY EQUAL (5 / 14)').should('be.visible');
             });
           });
         });
       });
       describe('the root element', () => {
-        beforeEach(() => {
-          analysisTree = panel.find(/^\/$/);
-        });
         describe('when clicked', () => {
-          beforeEach(() => {
-            analysisTree.click();
-          });
-          it('should show its child nodes', async () => {
+          it('should show its child nodes', () => {
+            // arrange
+            cy.contains('.MuiCardHeader-root', comparisonAnalysisText).find('button').click();
+
+            // act
+            cy.contains('is PARTIALLY EQUAL (5 / 14)').click();
+
             // assert
-            analysisTree.contains('breweries');
+            cy.contains('breweries');
           });
         });
       });
