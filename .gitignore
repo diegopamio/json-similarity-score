@@ -6,6 +6,8 @@
 .pnp.js
 
 # testing
+/jest-coverage
+/.nyc_output
 /coverage
 
 # next.js
@@ -34,5 +36,3 @@ yarn-error.log*
 .vercel
 .eslintcache
 
-# testing
-jest-coverage
