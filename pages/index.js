@@ -1,40 +1,14 @@
 import Head from 'next/head';
-import {
-  Box, Button, Container, Grid,
-} from '@material-ui/core';
+import { Box, Container } from '@material-ui/core';
 import React, { useState } from 'react';
-import axios from 'axios';
-import CompareIcon from '@material-ui/icons/Compare';
-import { JsonFileDropContainer } from '~/components/JsonFileDropContainer';
 import { Header } from '~/components/Header';
-import { ScoreCard } from '~/components/ScoreCard';
-
-const handleChange = (setJson) => (files) => {
-  files.forEach((file) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      setJson(reader.result);
-    };
-    reader.readAsText(file);
-  });
-};
+import { ScoreAnalysisLogPanel } from '~/components/ScoreAnalysisLog/ScoreAnalysisLogPanel';
+import { ControlPanel } from '~/components/ControlPanel';
 
 const Home = () => {
-  const [jsonA, setJsonA] = useState();
-  const [jsonB, setJsonB] = useState();
-  const [score, setScore] = useState();
+  const [scoringResults, setScoringResults] = useState({});
 
-  const compare = () => {
-    axios
-      .post('/api/score', { jsonA, jsonB })
-      .then(({ data }) => {
-        setScore(data.scoreNumber);
-      })
-      .catch((err) => {
-        console.log('error in request', err); // ToDo: properly catch errors.
-      });
-  };
-
+  const handleScoreChange = (data) => setScoringResults(data);
   return (
     <>
       <Head>
@@ -44,23 +18,8 @@ const Home = () => {
       <Header />
       <Container>
         <Box m={4}>
-          <Grid container spacing={2} justify="center">
-            {
-              [{ name: 'File  A', setJsonFn: setJsonA }, { name: 'File  B', setJsonFn: setJsonB }]
-                .map((dropzone) => (
-                  <Grid xs={4} item key={dropzone.name}>
-                    <JsonFileDropContainer onChange={handleChange(dropzone.setJsonFn)} text={dropzone.name} />
-                  </Grid>
-                ))
-            }
-            <Grid xs={3} item>
-              <Button fullWidth variant="contained" color="primary" onClick={compare} disabled={!jsonA || !jsonB}>
-                <CompareIcon />
-                Compare
-              </Button>
-              <ScoreCard score={score} />
-            </Grid>
-          </Grid>
+          <ControlPanel onScoreChange={handleScoreChange} />
+          {scoringResults.metaData && <ScoreAnalysisLogPanel scoreAnalysisData={scoringResults} />}
         </Box>
       </Container>
     </>

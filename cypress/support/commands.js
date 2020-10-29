@@ -28,7 +28,9 @@ import 'cypress-file-upload';
 
 Cypress.Commands.add('drop', (containerName, fileName) => {
   const json = `acceptance/${fileName}`;
+  // eslint-disable-next-line cypress/no-unnecessary-waiting
+  cy.wait(250); // Drag-dropping works in mysterious ways
   cy.contains(containerName).attachFile(json, { subjectType: 'drag-n-drop' });
   // eslint-disable-next-line cypress/no-unnecessary-waiting
-  cy.wait(500); // Drag-dropping works in mysterious ways
+  cy.wait(250); // Drag-dropping works in mysterious ways
 });
