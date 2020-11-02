@@ -5,11 +5,16 @@ import CompareIcon from '@material-ui/icons/Compare';
 import PropTypes from 'prop-types';
 import { JsonFileDropContainer } from '~/components/JsonFileDropContainer';
 import { ScoreCard } from '~/components/ScoreCard';
+import { OptionsPanel } from '~/components/OptionsPanel/OptionsPanel';
+import { DEFAULT_OPTIONS } from '~/utils/score/calculateScore';
+import { OptionsProvider } from '~/components/ControlPanel/OptionsContext';
 
 export const ControlPanel = ({ onScoreChange }) => {
   const [jsonA, setJsonA] = useState();
   const [jsonB, setJsonB] = useState();
   const [scoringResults, setScoringResults] = useState({});
+  const [options, setOptions] = useState(DEFAULT_OPTIONS);
+  console.log(options);
 
   const handleChange = (setJson) => (files) => {
     files.forEach((file) => {
@@ -23,7 +28,7 @@ export const ControlPanel = ({ onScoreChange }) => {
 
   const compare = () => {
     axios
-      .post('/api/score', { jsonA, jsonB })
+      .post('/api/score', { jsonA, jsonB, options: JSON.stringify(options) })
       .then(({ data }) => {
         setScoringResults(data);
         onScoreChange(data);
@@ -34,23 +39,27 @@ export const ControlPanel = ({ onScoreChange }) => {
   };
 
   return (
-    <Grid container spacing={2} justify="center">
-      {
-        [{ name: 'File  A', setJsonFn: setJsonA }, { name: 'File  B', setJsonFn: setJsonB }]
-          .map((dropzone) => (
-            <Grid xs={12} sm={6} md={4} item key={dropzone.name}>
-              <JsonFileDropContainer onChange={handleChange(dropzone.setJsonFn)} text={dropzone.name} />
-            </Grid>
-          ))
-      }
-      <Grid md={3} xs={12} item>
-        <Button fullWidth variant="contained" color="primary" onClick={compare} disabled={!jsonA || !jsonB}>
-          <CompareIcon />
-          Compare
-        </Button>
-        <ScoreCard score={scoringResults.scoreNumber} />
+    <OptionsProvider value={{ options, setOptions }}>
+      <Grid container spacing={2} justify="center">
+        {
+          [{ name: 'File  A', setJsonFn: setJsonA }, { name: 'File  B', setJsonFn: setJsonB }]
+            .map((dropzone) => (
+              <Grid xs={12} sm={6} md={4} item key={dropzone.name}>
+                <JsonFileDropContainer onChange={handleChange(dropzone.setJsonFn)} text={dropzone.name} />
+              </Grid>
+            ))
+        }
+        <Grid md={3} xs={12} item>
+          <Button fullWidth variant="contained" color="primary" onClick={compare} disabled={!jsonA || !jsonB}>
+            <CompareIcon />
+            Compare
+          </Button>
+          <ScoreCard score={scoringResults.scoreNumber} />
+        </Grid>
       </Grid>
-    </Grid>
+      <OptionsPanel />
+    </OptionsProvider>
+
   );
 };
 ControlPanel.propTypes = {

@@ -37,7 +37,7 @@ describe('The comparison analysis panel', () => {
         it('should be facing down', () => {
           // assert
           cy.contains('.MuiCardHeader-root', comparisonAnalysisText)
-            .find('button[aria-expanded=false]').should('exist');
+            .find('button[aria-expanded=false]');
         });
         describe('when clicked', () => {
           let panelHeader;
@@ -47,7 +47,7 @@ describe('The comparison analysis panel', () => {
           });
           it('should be facing up', () => {
             // assert
-            panelHeader.get('button[aria-expanded=true]').should('exist');
+            panelHeader.get('button[aria-expanded=true]');
           });
           it('should make the analysis log panel visible', () => {
             // assert
@@ -70,7 +70,7 @@ describe('The comparison analysis panel', () => {
             cy.contains('is PARTIALLY EQUAL').click();
 
             // assert
-            cy.contains('breweries').should('exist');
+            cy.contains('breweries');
           });
         });
       });
@@ -84,7 +84,7 @@ describe('The comparison analysis panel', () => {
             cy.contains('is PARTIALLY EQUAL').click();
 
             // assert
-            cy.contains('(5 / 14)').should('exist');
+            cy.contains('(5 / 14)');
           });
         });
         describe('when comparing arrays', () => {

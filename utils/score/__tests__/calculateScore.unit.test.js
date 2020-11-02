@@ -1,6 +1,7 @@
 import { calculateScore } from '../calculateScore';
 import complexJSON from '~/cypress/fixtures/acceptance/BreweriesMaster.json';
 import BreweriesSample4 from '~/cypress/fixtures/acceptance/BreweriesSample4.json';
+import { SCORE_SETTINGS_VALUES, SCORING_SETTINGS_KEYS } from '~/utils/score/constants';
 
 const TEST_PRECISION = 15;
 const key0 = 'value1';
@@ -143,6 +144,7 @@ describe('score', () => {
           {
             count: 1,
             matched: 1,
+            children: [],
             metaData: {
               key: 'state',
               typeOfA: 'string',
@@ -154,6 +156,7 @@ describe('score', () => {
           {
             count: 1,
             matched: 0,
+            children: [],
             metaData: {
               key: 'state-bird',
               typeOfA: 'string',
@@ -164,6 +167,7 @@ describe('score', () => {
           {
             count: 1,
             matched: 0,
+            children: [],
             metaData: {
               key: 'state-fish',
               typeOfA: 'string',
@@ -178,6 +182,7 @@ describe('score', () => {
                   {
                     count: 1,
                     matched: 1,
+                    children: [],
                     metaData: {
                       key: 'name',
                       typeOfA: 'string',
@@ -189,6 +194,7 @@ describe('score', () => {
                   {
                     count: 1,
                     matched: 0,
+                    children: [],
                     metaData: {
                       key: 'location',
                       typeOfA: 'object',
@@ -204,6 +210,7 @@ describe('score', () => {
                   {
                     count: 1,
                     matched: 1,
+                    children: [],
                     metaData: {
                       key: 'food-available',
                       typeOfA: 'boolean',
@@ -215,6 +222,7 @@ describe('score', () => {
                   {
                     count: 1,
                     matched: 0,
+                    children: [],
                     metaData: {
                       key: 'beers',
                       typeOfA: 'object',
@@ -244,6 +252,7 @@ describe('score', () => {
                   {
                     count: 1,
                     matched: 0,
+                    children: [],
                     metaData: {
                       key: 'beer-list',
                       typeOfA: 'undefined',
@@ -281,6 +290,7 @@ describe('score', () => {
                   {
                     count: 1,
                     matched: 1,
+                    children: [],
                     metaData: {
                       key: 'name',
                       typeOfA: 'string',
@@ -292,6 +302,7 @@ describe('score', () => {
                   {
                     count: 1,
                     matched: 0,
+                    children: [],
                     metaData: {
                       key: 'location',
                       typeOfA: 'object',
@@ -307,6 +318,7 @@ describe('score', () => {
                   {
                     count: 1,
                     matched: 1,
+                    children: [],
                     metaData: {
                       key: 'food-available',
                       typeOfA: 'boolean',
@@ -318,6 +330,7 @@ describe('score', () => {
                   {
                     count: 1,
                     matched: 0,
+                    children: [],
                     metaData: {
                       key: 'beers',
                       typeOfA: 'object',
@@ -341,6 +354,7 @@ describe('score', () => {
                   {
                     count: 1,
                     matched: 0,
+                    children: [],
                     metaData: {
                       key: 'address',
                       typeOfA: 'undefined',
@@ -355,6 +369,7 @@ describe('score', () => {
                   {
                     count: 1,
                     matched: 0,
+                    children: [],
                     metaData: {
                       key: 'beer-list',
                       typeOfA: 'undefined',
@@ -390,6 +405,50 @@ describe('score', () => {
             },
           },
         ]);
+      });
+    });
+  });
+  describe('when the flex array option is true', () => {
+    const { ARRAY_POSITION_MATCH } = SCORING_SETTINGS_KEYS;
+    const { MATCH_ANY_POSITION } = SCORE_SETTINGS_VALUES[ARRAY_POSITION_MATCH];
+    const options = {
+      [ARRAY_POSITION_MATCH]: MATCH_ANY_POSITION,
+    };
+
+    describe('when both JSON contains an array but with different order', () => {
+      it('should score as "Equal"', async () => {
+        // arrange
+        const jsonA = { array: [1, 2, 3, { obj: 5 }, 6, [1, 2, 3]] };
+        const jsonB = { array: [[3, 2, 1], 1, 3, 2, { obj: 5 }, 6] };
+
+        // act
+        const result = calculateScore(jsonA, jsonB, options);
+        // assert
+        expect(result.scoreNumber).toEqual(1);
+      });
+    });
+    describe('when both JSON contains a flat array one shorter than the other', () => {
+      it('should score length of shorter array / length of larger array"', async () => {
+        // arrange
+        const jsonA = { array: [1, 2, 3, 'b', 6, 'a'] };
+        const jsonB = { array: ['a', 1, 3, 2, 'b'] };
+
+        // act
+        const result = calculateScore(jsonA, jsonB, options);
+
+        // assert
+        expect(result.scoreNumber).toEqual(5 / 6);
+      });
+      it('should properly weight nested objects"', async () => {
+        // arrange
+        const jsonA = { array: [{ prop1: 'a', prop2: 'b' }, 1, 2, 3, { prop1: 'a' }, 'a'] };
+        const jsonB = { array: ['a', 1, 3, 2, { prop1: 'a' }] };
+
+        // act
+        const result = calculateScore(jsonA, jsonB, options);
+
+        // assert
+        expect(result.scoreNumber).toEqual(5 / 6);
       });
     });
   });

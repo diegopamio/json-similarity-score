@@ -1,4 +1,4 @@
-import { calculateScore } from '~/utils/score';
+import { calculateScore } from '~/utils/score/calculateScore';
 
 function isJson(str) {
   try {
@@ -10,14 +10,16 @@ function isJson(str) {
 }
 
 /**
- * Endpoint that triggers the calculateScore function, checks that params are correct (jsonA and jsonB are JSON objects)
+ * Endpoint that triggers the calculateScore function, checks that params are correct
+ * (jsonA, jsonB and options are JSON objects)
  * @param req
  * @param res
  * @return {*|void|Promise<any>}
  */
 export default (req, res) => {
   if (req.method === 'POST') {
-    const validParams = ['jsonA', 'jsonB'].map((json) => {
+    const { jsonA, jsonB, options } = req.body;
+    const validParams = ['jsonA', 'jsonB', 'options'].map((json) => {
       res.statusCode = 422;
       if (!req.body[json]) {
         res.end(`Missing Param: Body must contain ${json}`);
@@ -32,7 +34,7 @@ export default (req, res) => {
 
     if (validParams.every((isValid) => isValid === true)) {
       res.statusCode = 200;
-      return res.json(calculateScore(JSON.parse(req.body.jsonA), JSON.parse(req.body.jsonB)));
+      return res.json(calculateScore(JSON.parse(jsonA), JSON.parse(jsonB), JSON.parse(options)));
     }
   } else {
     res.statusCode = 405;

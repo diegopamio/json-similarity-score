@@ -28,7 +28,8 @@
     "prop-types": "^15.7.2",
     "react": "17.0.0",
     "react-dom": "17.0.0",
-    "react-github-fork-ribbon": "^0.6.0"
+    "react-github-fork-ribbon": "^0.6.0",
+    "react-swipeable-views": "^0.13.9"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",

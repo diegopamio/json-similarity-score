@@ -4,31 +4,11 @@ import { TreeView } from '@material-ui/lab';
 import TreeItem from '@material-ui/lab/TreeItem';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
 import {
-  CardContent, CardHeader, useMediaQuery, useTheme,
+  useMediaQuery, useTheme,
 } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import Collapse from '@material-ui/core/Collapse';
-import IconButton from '@material-ui/core/IconButton';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import clsx from 'clsx';
 import { TreeItemLabel } from '~/components/ScoreAnalysisLog/TreeItemLabel';
-
-const useStyles = makeStyles((theme) => ({
-  expand: {
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)',
-  },
-
-}));
+import { CollapsiblePanel } from '~/components/CollapsiblePanel';
 
 const buildTree = (path, {
   metaData, matched, count, children,
@@ -51,49 +31,18 @@ const buildTree = (path, {
 export const ScoreAnalysisLogPanel = ({
   scoreAnalysisData,
 }) => {
-  const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
-    <Grid container spacing={2} justify="center">
-      <Grid item xs={12} md={11}>
-        <Card variant="outlined" widt={100} height="500px">
-          <CardHeader
-            title={`${matches ? 'Comparison ' : ' '} Analysis`}
-            action={(
-              <IconButton
-                className={clsx(classes.expand, {
-                  [classes.expandOpen]: expanded,
-                })}
-                onClick={handleExpandClick}
-                aria-expanded={expanded}
-                aria-label="show more"
-              >
-                {' '}
-                <ExpandMoreIcon />
-              </IconButton>
-            )}
-          />
-
-          <Collapse in={expanded} timeout="auto" unmountOnExit>
-            <CardContent>
-              <TreeView
-                defaultCollapseIcon={<ArrowDropDownIcon />}
-                defaultExpandIcon={<ArrowRightIcon />}
-              >
-                {buildTree('root', scoreAnalysisData)}
-              </TreeView>
-            </CardContent>
-          </Collapse>
-        </Card>
-      </Grid>
-    </Grid>
+    <CollapsiblePanel title={`${matches ? 'Comparison ' : ' '} Analysis`}>
+      <TreeView
+        defaultCollapseIcon={<ArrowDropDownIcon />}
+        defaultExpandIcon={<ArrowRightIcon />}
+      >
+        {buildTree('root', scoreAnalysisData)}
+      </TreeView>
+    </CollapsiblePanel>
   );
 };
 

@@ -20,6 +20,7 @@ describe('score endpoint', () => {
     const emptyBody = {
       jsonA: '{}',
       jsonB: '{}',
+      options: '{}',
     };
 
     const res = { end: jest.fn(), json: jest.fn() };
@@ -71,6 +72,7 @@ describe('score endpoint', () => {
     describe.each([
       'jsonA',
       'jsonB',
+      'options',
     ])('when param %s is not JSON-formatted', (json) => {
       it('should return a 422 explaining the missing param', async () => {
         // arrange
