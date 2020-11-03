@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types,react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
@@ -28,12 +29,10 @@ export default function MyApp(props) {
         />
       </Head>
       <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <GitHubForkRibbon href="//github.com/diegopamio/json-similarity-score" target="_blank">
           Fork me on GitHub
         </GitHubForkRibbon>
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <Component {...pageProps} />
       </ThemeProvider>
     </>
@@ -42,6 +41,5 @@ export default function MyApp(props) {
 
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
   pageProps: PropTypes.object.isRequired,
 };
