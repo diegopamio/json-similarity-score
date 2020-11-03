@@ -1,3 +1,11 @@
+## [1.9.1](https://github.com/diegopamio/json-similarity-score/compare/v1.9.0...v1.9.1) (2020-11-03)
+
+
+### Bug Fixes
+
+* add missing $ sign in secrets ([530ad44](https://github.com/diegopamio/json-similarity-score/commit/530ad441883c1c350385da4eb4bd631a22c342a6))
+* add missing env vars in GitHub Action workflows ([a1d4a5d](https://github.com/diegopamio/json-similarity-score/commit/a1d4a5d02c3f1032e911f7d09a112f03c729625b))
+
 # [1.9.0](https://github.com/diegopamio/json-similarity-score/compare/v1.8.0...v1.9.0) (2020-11-03)
 
 
