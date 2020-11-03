@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/diegopamio/json-similarity-score/compare/v1.6.1...v1.7.0) (2020-11-03)
+
+
+### Features
+
+* add Crisp chat bubble as support mechanism ([ab2c4ae](https://github.com/diegopamio/json-similarity-score/commit/ab2c4ae19b56b72e43bda73bd0da0bdb1d71f0dd))
+
 ## [1.6.1](https://github.com/diegopamio/json-similarity-score/compare/v1.6.0...v1.6.1) (2020-11-03)
 
 
