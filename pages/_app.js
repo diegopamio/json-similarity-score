@@ -7,6 +7,17 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import GitHubForkRibbon from 'react-github-fork-ribbon';
 import theme from '../styles/theme';
 
+const CommonHead = () => (
+  <Head>
+    <title>JSON Similarity Score</title>
+    <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+    <meta
+      name="description"
+      content="A simple tool for developers to compare json files, with detailed analysis and overall score."
+    />
+  </Head>
+);
+
 export default function MyApp(props) {
   const { Component, pageProps } = props;
 
@@ -20,14 +31,7 @@ export default function MyApp(props) {
 
   return (
     <>
-      <Head>
-        <title>My page</title>
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-        <meta
-          name="description"
-          content="A simple tool for developers to compare json files, with detailed analysis and overall score."
-        />
-      </Head>
+      <CommonHead />
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <GitHubForkRibbon href="//github.com/diegopamio/json-similarity-score" target="_blank">
