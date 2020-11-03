@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 export default () => {
   useEffect(() => {
     window.$crisp = [];
-    window.CRISP_WEBSITE_ID = '13538f0f-96c4-4c63-88c1-6bdb7b3425f3';
+    window.CRISP_WEBSITE_ID = process.env.NEXT_PUBLIC_CRISP_WEBSITE_ID;
 
     (function () {
       const d = document;
