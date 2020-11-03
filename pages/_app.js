@@ -34,6 +34,17 @@ const CommonHead = () => (
                 };heap.load("1441164514");`,
     }}
     />
+    <script
+      data-name="BMC-Widget"
+      src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+      data-id="diegopamio"
+      data-description="Support me on Buy me a coffee!"
+      data-message="If this was helpful for you, you can support me by buying me a coffee"
+      data-color="#12b7e3"
+      data-position="left"
+      data-x_margin="18"
+      data-y_margin="18"
+    />
   </Head>
 );
 

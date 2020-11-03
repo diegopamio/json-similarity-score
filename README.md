@@ -103,7 +103,7 @@ _(Pictue and option setting for this one comming in future releases)_
   * [ ] Example comparisons.
   * [ ] Client-side calculation option (for privacy concerns)
 * Monetization:
-  * [ ] BuyMeACoffee integration.
+  * [x] ~~BuyMeACoffee integration.~~
   * [ ] AdSense integration.
 * Other:
   * [x] ~~Do a proper README.md beyond the badges galore.~~
