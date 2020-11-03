@@ -3,7 +3,7 @@ import { Box, Container } from '@material-ui/core';
 import React, { useState } from 'react';
 import { Header } from '~/components/Header';
 import { ScoreAnalysisLogPanel } from '~/components/ScoreAnalysisLog/ScoreAnalysisLogPanel';
-import { ControlPanel } from '~/components/ControlPanel';
+import { ControlPanel } from '~/components/ControlPanel/ControlPanel';
 
 const Home = () => {
   const [scoringResults, setScoringResults] = useState({});
