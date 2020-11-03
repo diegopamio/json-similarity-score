@@ -26,10 +26,10 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BASE_URL: http://localhost:3000
-          NEXT_PUBLIC_FULLSTORY_ORG_ID: {{ secrets.NEXT_PUBLIC_FULLSTORY_ORG_ID }}
-          NEXT_PUBLIC_HEAP_ID: {{ secrets.NEXT_PUBLIC_HEAP_ID }}
-          NEXT_PUBLIC_CRISP_WEBSITE_ID: {{ secrets.NEXT_PUBLIC_CRISP_WEBSITE_ID }}
-          NEXT_PUBLIC_BUY_ME_A_COFFEE_ID: {{ secrets.NEXT_PUBLIC_BUY_ME_A_COFFEE_ID }}
+          NEXT_PUBLIC_FULLSTORY_ORG_ID: ${{ secrets.NEXT_PUBLIC_FULLSTORY_ORG_ID }}
+          NEXT_PUBLIC_HEAP_ID: ${{ secrets.NEXT_PUBLIC_HEAP_ID }}
+          NEXT_PUBLIC_CRISP_WEBSITE_ID: ${{ secrets.NEXT_PUBLIC_CRISP_WEBSITE_ID }}
+          NEXT_PUBLIC_BUY_ME_A_COFFEE_ID: ${{ secrets.NEXT_PUBLIC_BUY_ME_A_COFFEE_ID }}
         with:
           browser: chrome
           headless: true
