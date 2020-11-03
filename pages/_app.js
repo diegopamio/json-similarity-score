@@ -8,8 +8,6 @@ import GitHubForkRibbon from 'react-github-fork-ribbon';
 import * as FullStory from '@fullstory/browser';
 import theme from '../styles/theme';
 
-FullStory.init({ orgId: 'Z3KBX' });
-
 const CommonHead = () => (
   <Head>
     <title>JSON Similarity Score</title>
@@ -19,7 +17,7 @@ const CommonHead = () => (
       content="A simple tool for developers to compare json files, with detailed analysis and overall score."
     />
     <script dangerouslySetInnerHTML={{
-      __html: ` window.heap=window.heap||[],heap.load=function(e,t) {
+      __html: `window.heap=window.heap||[],heap.load=function(e,t) {
                   window.heap.appid=e,window.heap.config=t=t||{};
                     var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");
                     a.type="text/javascript",
@@ -47,6 +45,7 @@ export default function MyApp(props) {
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
+    FullStory.init({ orgId: 'Z3KBX' });
   }, []);
 
   return (
