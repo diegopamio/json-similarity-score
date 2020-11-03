@@ -31,13 +31,13 @@ const CommonHead = () => (
                   },
                   p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty",
                      "setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])
-                };heap.load("1441164514");`,
+                };heap.load("${process.env.NEXT_PUBLIC_HEAP_ID}");`,
     }}
     />
     <script
       data-name="BMC-Widget"
       src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-      data-id="diegopamio"
+      data-id={process.env.NEXT_PUBLIC_BUY_ME_A_COFFEE_ID}
       data-description="Support me on Buy me a coffee!"
       data-message="If this was helpful for you, you can support me by buying me a coffee"
       data-color="#12b7e3"
@@ -62,7 +62,7 @@ export default function MyApp(props) {
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
-    FullStory.init({ orgId: 'Z3KBX' });
+    FullStory.init({ orgId: process.env.NEXT_PUBLIC_FULLSTORY_ORG_ID });
   }, []);
 
   return (
