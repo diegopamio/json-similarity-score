@@ -101,5 +101,20 @@ describe('The scoring app', () => {
         cy.contains('35.7%');
       });
     });
+    ['A', 'B'].map((fileLetter) => describe(`when the File ${fileLetter} is not valid JSONs`, () => {
+      it('should shown an error message', () => {
+        // arrange
+        const goodFile = 'BreweriesMaster.json';
+        const brokenFile = 'BreweriesMaster-broken.txt';
+        cy.drop('File A', goodFile);
+        cy.drop('File B', goodFile);
+        cy.drop(`File ${fileLetter}`, brokenFile);
+        // act
+        cy.contains('Compare').click();
+
+        // assert
+        cy.contains(`Could not parse json${fileLetter} param as a JSON object`);
+      });
+    }));
   });
 });

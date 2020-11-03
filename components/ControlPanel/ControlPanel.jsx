@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Button, Grid } from '@material-ui/core';
 import CompareIcon from '@material-ui/icons/Compare';
 import PropTypes from 'prop-types';
+import Snackbar from '@material-ui/core/Snackbar';
+import Alert from '@material-ui/lab/Alert';
 import { JsonFileDropContainer } from '~/components/JsonFileDropContainer';
 import { ScoreCard } from '~/components/ScoreCard';
 import { OptionsPanel } from '~/components/OptionsPanel/OptionsPanel';
@@ -14,6 +16,15 @@ export const ControlPanel = ({ onScoreChange }) => {
   const [jsonB, setJsonB] = useState();
   const [scoringResults, setScoringResults] = useState({});
   const [options, setOptions] = useState(DEFAULT_OPTIONS);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const dismissErrorMessage = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setErrorMessage('');
+  };
 
   const handleChange = (setJson) => (files) => {
     files.forEach((file) => {
@@ -33,7 +44,7 @@ export const ControlPanel = ({ onScoreChange }) => {
         onScoreChange(data);
       })
       .catch((err) => {
-        console.log('error in request', err); // ToDo: properly catch errors.
+        setErrorMessage(err.response?.data || err.messageData);
       });
   };
 
@@ -53,14 +64,24 @@ export const ControlPanel = ({ onScoreChange }) => {
             <CompareIcon />
             Compare
           </Button>
+          <Snackbar
+            anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+            open={errorMessage.length > 0}
+            onClose={dismissErrorMessage}
+            autoHideDuration={6000}
+          >
+            <Alert severity="error" onClose={dismissErrorMessage}>
+              {errorMessage}
+            </Alert>
+          </Snackbar>
           <ScoreCard score={scoringResults.scoreNumber} />
         </Grid>
       </Grid>
       <OptionsPanel />
     </OptionsProvider>
-
   );
 };
+
 ControlPanel.propTypes = {
   onScoreChange: PropTypes.func,
 };
