@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/diegopamio/json-similarity-score/compare/v1.5.1...v1.6.0) (2020-11-03)
+
+
+### Features
+
+* add an option to compare unsorted arrays ([4d1046b](https://github.com/diegopamio/json-similarity-score/commit/4d1046b886d4f14ec82d6daf5677432640cdf6bb))
+
 ## [1.5.1](https://github.com/diegopamio/json-similarity-score/compare/v1.5.0...v1.5.1) (2020-10-29)
 
 
