@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/diegopamio/json-similarity-score/compare/v1.7.0...v1.8.0) (2020-11-03)
+
+
+### Features
+
+* capture and show errors in the scoring processing ([cae1ab1](https://github.com/diegopamio/json-similarity-score/commit/cae1ab1c2b7ddaa93b27dc6d70f786e54a9a49fe))
+
 # [1.7.0](https://github.com/diegopamio/json-similarity-score/compare/v1.6.1...v1.7.0) (2020-11-03)
 
 
