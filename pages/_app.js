@@ -6,6 +6,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import GitHubForkRibbon from 'react-github-fork-ribbon';
 import * as FullStory from '@fullstory/browser';
+import dynamic from 'next/dynamic';
 import theme from '../styles/theme';
 
 const CommonHead = () => (
@@ -36,6 +37,11 @@ const CommonHead = () => (
   </Head>
 );
 
+const CrispWithNoSSR = dynamic(
+  () => import('../components/Crisp'),
+  { ssr: false },
+);
+
 export default function MyApp(props) {
   const { Component, pageProps } = props;
 
@@ -53,6 +59,7 @@ export default function MyApp(props) {
       <CommonHead />
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <CrispWithNoSSR />
         <GitHubForkRibbon href="//github.com/diegopamio/json-similarity-score" target="_blank">
           Fork me on GitHub
         </GitHubForkRibbon>

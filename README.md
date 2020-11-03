@@ -89,7 +89,7 @@ _(Pictue and option setting for this one comming in future releases)_
   * [ ] Sentry (for error logging).
   * [x] ~~Heap (for analytics).~~
   * [x] ~~FullStory (to analyze user’s behavior).~~
-  * [ ] Crisp (as the only support I’ll offer to end users).
+  * [x] ~~Crisp (as the only support I’ll offer to end users).~~
 * Algorithm options:
   * [ ] Weighed by level vs weighed by sub-tree size scoring
   * [x] ~~Order-Forced vs Any-to-any array subtree comparison~~
