@@ -87,7 +87,7 @@ _(Pictue and option setting for this one comming in future releases)_
 
 * Integration with third-party tools:
   * [ ] Sentry (for error logging).
-  * [ ] Heap (for analytics).
+  * [x] ~~Heap (for analytics).~~
   * [ ] FullStory (to analyze user’s behavior).
   * [ ] Crisp (as the only support I’ll offer to end users).
 * Algorithm options:
