@@ -14,7 +14,6 @@ export const ControlPanel = ({ onScoreChange }) => {
   const [jsonB, setJsonB] = useState();
   const [scoringResults, setScoringResults] = useState({});
   const [options, setOptions] = useState(DEFAULT_OPTIONS);
-  console.log(options);
 
   const handleChange = (setJson) => (files) => {
     files.forEach((file) => {

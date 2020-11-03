@@ -14,9 +14,6 @@ export const OptionsAlternatives = ({ optionKey, alternatives }) => {
   const handleChange = (event) => {
     setOptions({ ...options, [optionKey]: event.target.value });
   };
-  console.log(options);
-  console.log(options[optionKey]);
-  console.log(alternatives);
   return (
 
     <FormControl component="fieldset">

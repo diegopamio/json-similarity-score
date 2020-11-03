@@ -88,7 +88,7 @@ _(Pictue and option setting for this one comming in future releases)_
 * Integration with third-party tools:
   * [ ] Sentry (for error logging).
   * [x] ~~Heap (for analytics).~~
-  * [ ] FullStory (to analyze user’s behavior).
+  * [x] ~~FullStory (to analyze user’s behavior).~~
   * [ ] Crisp (as the only support I’ll offer to end users).
 * Algorithm options:
   * [ ] Weighed by level vs weighed by sub-tree size scoring

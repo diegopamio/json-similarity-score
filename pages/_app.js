@@ -5,7 +5,10 @@ import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import GitHubForkRibbon from 'react-github-fork-ribbon';
+import * as FullStory from '@fullstory/browser';
 import theme from '../styles/theme';
+
+FullStory.init({ orgId: 'Z3KBX' });
 
 const CommonHead = () => (
   <Head>
