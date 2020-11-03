@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/diegopamio/json-similarity-score/compare/v1.8.0...v1.9.0) (2020-11-03)
+
+
+### Features
+
+* add "buy me a coffee" widget ([952937a](https://github.com/diegopamio/json-similarity-score/commit/952937ada11d8e863afd62d5b9224b8569239d3c))
+
 # [1.8.0](https://github.com/diegopamio/json-similarity-score/compare/v1.7.0...v1.8.0) (2020-11-03)
 
 
