@@ -40,7 +40,7 @@ export const JsonFileDropContainer = ({ onChange, text }) => {
         dropzoneClass={classes.dropzone}
         getFileAddedMessage={(fileName) => `${fileName} successfully added.`}
         previewGridProps={{ container: { justify: 'center', direction: 'row' } }}
-        acceptedFiles={['application/json']}
+        acceptedFiles={['application/json', '.txt']}
       />
     </Card>
   );
