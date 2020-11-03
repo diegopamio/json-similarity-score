@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/diegopamio/json-similarity-score/compare/v1.6.0...v1.6.1) (2020-11-03)
+
+
+### Bug Fixes
+
+* move FullStory init to useEffect to prevent loading in ss ([c15ef25](https://github.com/diegopamio/json-similarity-score/commit/c15ef253987d4ace5e398f2da3708c54fdf439dc))
+
 # [1.6.0](https://github.com/diegopamio/json-similarity-score/compare/v1.5.1...v1.6.0) (2020-11-03)
 
 
