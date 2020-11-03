@@ -19,7 +19,7 @@ This open source app is continuously being deployed on every master commit to:
 
 You can freely use it there, download and use it by yourself, or make a pull request to improve the app and its correposnding live server(s).
  
-# Design decisions and overall aproaches
+# Design decisions and overall approaches
 
 _Note: these are all subject to consideration if you find anything better._ 
 
@@ -81,6 +81,7 @@ _(Pictue and option setting for this one comming in future releases)_
 # What it DOESN'T has
 - i18n
 - Three or n-way comparison
+- CMS for page content/strings
 - Things that are in the roadmap
 
 ## Roadmap
@@ -100,6 +101,10 @@ _(Pictue and option setting for this one comming in future releases)_
   * [ ] Save comparison analysis
   * [ ] Algorithm options guidance and explanation.
   * [ ] Example comparisons.
+  * [ ] Client-side calculation option (for privacy concerns)
+* Monetization:
+  * [ ] BuyMeACoffee integration.
+  * [ ] AdSense integration.
 * Other:
   * [x] ~~Do a proper README.md beyond the badges galore.~~
   * [ ] Make it a PWA.
