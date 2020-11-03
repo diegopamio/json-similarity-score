@@ -2,7 +2,6 @@ import Box from '@material-ui/core/Box';
 import React from 'react';
 import { CardContent, CardHeader, Grid } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
-import PropTypes from 'prop-types';
 import { TabPanel } from '~/components/OptionsPanel/TabPanel';
 import { OptionsAlternatives } from '~/components/OptionsPanel/OptionsAlternatives';
 import { SCORE_SETTINGS_VALUES, SCORING_SETTINGS_KEYS } from '~/utils/score/constants';
@@ -43,8 +42,4 @@ export const ArrayCompareOptionPanel = ({ value, index, dir }) => (
   </TabPanel>
 );
 
-ArrayCompareOptionPanel.propTypes = {
-  value: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired,
-  dir: PropTypes.string.isRequired,
-};
+ArrayCompareOptionPanel.propTypes = TabPanel.propTypes;
