@@ -54,8 +54,11 @@ These are the ones I've discovered so far:
 Arrays are naturally unsorted, so in order to compare them, you can choose to:
 
 1. Compare one by one enforcing the need for them to have the same index in order to be considered equal.
+
 ![Option 1](public/images/arrayPositionMatch-strict.png)
+
 2. Making a permutation of each possible position and matching between the elements of each one of the arrays and keeping the best one as the overall score.
+
 ![Option 2](public/images/arrayPositionMatch-flex.png)
 
 Option 1 is faster, option 2 is more aligned with the spirit of arrays. In the app, there is an option setting to decide which one to use.
@@ -65,10 +68,13 @@ Option 1 is faster, option 2 is more aligned with the spirit of arrays. In the a
 If two JSONs has only two keys, and one of them is in both JSON a single number, let's say `3`, but in the other key, they both have a four-level nested json with thousands of arrays, sub-objects, sub-arrays and text and numbers, for which they are only completely different, would you say they are 50% equal (1 out of 2 keys) or almost completely different? 
 
 Options are:
-* All the nodes weight the same, so a root node with several nested nodes would weight more than the other siblings.
-* Each node at a given level have a weight in the total equal to 1 / the number of sibblings. And its sub-tree nodes add to that fraction only.
- 
-_(Pictue and option setting for this one comming in future releases)_
+* All the nodes weigh the same, so a root node with several nested nodes would weigh more than the other siblings.
+
+![Option 1](public/images/elementWeight-descendantsCount.png)
+
+* Each node at a given level have a weight in the total equal to 1 / the number of siblings. And its sub-tree nodes add to that fraction only.
+
+![Option 2](public/images/elementWeight-siblingsProportion.png) 
 
 ## How to count missing branches
 
@@ -78,7 +84,7 @@ If some element is missing in one of the JSON but present in the other, you coul
 * number of root nodes in one side, and 0 in the other.
 * number of all the nested nodes in one side, and 0 in the other.
 
-_(Pictue and option setting for this one comming in future releases)_
+_(Picture and option setting for this one comming in future releases)_
 
 # What it DOESN'T has
 - i18n
@@ -94,7 +100,7 @@ _(Pictue and option setting for this one comming in future releases)_
   * [x] ~~FullStory (to analyze user’s behavior).~~
   * [x] ~~Crisp (as the only support I’ll offer to end users).~~
 * Algorithm options:
-  * [ ] Weighed by level vs weighed by sub-tree size scoring
+  * [x] ~~Weighed by level vs weighed by sub-tree size scoring.~~
   * [x] ~~Order-Forced vs Any-to-any array subtree comparison~~
   * [ ] Counting 0/1 or 0/<subtree size> when some ket is present in only one of the sides
 * UI/Features:

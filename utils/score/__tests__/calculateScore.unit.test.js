@@ -1,7 +1,10 @@
-import { calculateScore } from '../calculateScore';
+import { calculateScore } from '~/utils/score';
 import complexJSON from '~/cypress/fixtures/acceptance/BreweriesMaster.json';
 import BreweriesSample4 from '~/cypress/fixtures/acceptance/BreweriesSample4.json';
 import { SCORE_SETTINGS_VALUES, SCORING_SETTINGS_KEYS } from '~/utils/score/constants';
+
+const { ARRAY_POSITION_MATCH, ELEMENT_WEIGHT } = SCORING_SETTINGS_KEYS;
+const { SIBLINGS_PROPORTION } = SCORE_SETTINGS_VALUES[ELEMENT_WEIGHT];
 
 const TEST_PRECISION = 15;
 const key0 = 'value1';
@@ -10,6 +13,7 @@ const key2 = 'value2';
 const key3 = 'value3';
 const key4 = 'value4';
 const key5 = 'value5';
+const key6 = 'value6';
 
 const simpleJSON = {
   key1,
@@ -409,7 +413,6 @@ describe('score', () => {
     });
   });
   describe('when the flex array option is true', () => {
-    const { ARRAY_POSITION_MATCH } = SCORING_SETTINGS_KEYS;
     const { MATCH_ANY_POSITION } = SCORE_SETTINGS_VALUES[ARRAY_POSITION_MATCH];
     const options = {
       [ARRAY_POSITION_MATCH]: MATCH_ANY_POSITION,
@@ -449,6 +452,92 @@ describe('score', () => {
 
         // assert
         expect(result.scoreNumber).toEqual(5 / 6);
+      });
+    });
+  });
+  describe('when weight of each element depends of the # of siblings', () => {
+    describe('when there are nested JSON', () => {
+      describe.each([
+        ['two out of three root keys flat and equal, the remaining one has one equal and one different key',
+          { key1, key2, nestedKey: { key3, key4 } },
+          { key1, key2, nestedKey: { key3, key4: 'altValue' } },
+          2 / 3 + 0.5 / 3],
+        ['three root keys are flat, two equal and one different, the fourth one has one equal and one different key',
+          {
+            key1, key2, keyDifferent: 'value1', nestedKey: { key3, key4 },
+          },
+          {
+            key1, key2, keyDifferent: 'value2', nestedKey: { key3, key4: 'altValue' },
+          },
+          2 / 4 + 0.5 / 4],
+        ['one root key is equal, and the other has three levels of nesting, with 1/3 equal on each',
+          {
+            key1,
+            nestedKey: {
+              key1,
+              key2,
+              nestedKeyL2: {
+                key5: 'anotherVal5',
+                key6: 'anotherVal6',
+                nestedLeyL3: {
+                  key0, key1, key2: 'anotherVal2',
+                },
+              },
+            },
+          },
+          {
+            key1,
+            nestedKey: {
+              key1: 'anotherVal1',
+              key2: 'anotherVal2',
+              nestedKeyL2: {
+                key5,
+                key6,
+                nestedLeyL3: {
+                  key0, key1: 'anotherVal1', key2,
+                },
+              },
+            },
+          },
+          (1 / 2) + ((((1 / 2) / 3) / 3) / 3)],
+        ['one root key is equal, and the other has three levels of nesting, with 1/3 equal on each',
+          {
+            key1,
+            nestedKey: {
+              key1,
+              key2,
+              nestedKeyL2: {
+                key5: 'anotherVal5',
+                key6: 'anotherVal6',
+                nestedLeyL3: {
+                  key0, key1, key2: 'anotherVal2',
+                },
+              },
+            },
+          },
+          {
+            key1: 'anotherVal1',
+            nestedKey: {
+              key1: 'anotherVal1',
+              key2: 'anotherVal2',
+              nestedKeyL2: {
+                key5,
+                key6,
+                nestedLeyL3: {
+                  key0, key1: 'anotherVal1', key2,
+                },
+              },
+            },
+          },
+          ((((1 / 2) / 3) / 3) / 3)],
+      ])('when %s', (title, fileA, fileB, expected) => {
+        it(`should return ${expected.toFixed(TEST_PRECISION)} as score`, () => {
+          // act
+          const result = calculateScore(fileA, fileB, { [ELEMENT_WEIGHT]: SIBLINGS_PROPORTION });
+
+          // assert
+          expect(result.scoreNumber.toFixed(TEST_PRECISION)).toEqual(expected.toFixed(TEST_PRECISION));
+        });
       });
     });
   });

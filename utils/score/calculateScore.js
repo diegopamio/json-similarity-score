@@ -3,14 +3,14 @@
 import { SCORE_SETTINGS_VALUES, SCORING_SETTINGS_KEYS } from '~/utils/score/constants';
 import { permute } from '~/utils/score/permute';
 
-const { ARRAY_POSITION_MATCH } = SCORING_SETTINGS_KEYS;
+const { ARRAY_POSITION_MATCH, ELEMENT_WEIGHT } = SCORING_SETTINGS_KEYS;
 const { FORCE_SAME_POSITION, MATCH_ANY_POSITION } = SCORE_SETTINGS_VALUES[ARRAY_POSITION_MATCH];
+const { DESCENDANTS_COUNT, SIBLINGS_PROPORTION } = SCORE_SETTINGS_VALUES[ELEMENT_WEIGHT];
+
 export const DEFAULT_OPTIONS = {
   [ARRAY_POSITION_MATCH]: FORCE_SAME_POSITION,
+  [ELEMENT_WEIGHT]: DESCENDANTS_COUNT,
 };
-
-// A fresh counter of node matched with no matching so far and a count of 1.
-const countedNode = { matched: 0, count: 1, children: [] };
 
 /**
  * Gets the union of two object keys, removing duplicates.
@@ -31,12 +31,14 @@ const getUniqueKeys = (objA, objB) => Object
  * @return {{[p: string]: *}}
  */
 const evaluateNode = (valueOfA, valueOfB, options) => {
+  const initialResult = { matched: 0, count: options.weight, children: [] };
+
   if (options[ARRAY_POSITION_MATCH] === MATCH_ANY_POSITION && [valueOfA, valueOfB].every(Array.isArray)) {
-    return { ...countedNode, ...evaluateArrayNode(valueOfA, valueOfB, options) };
+    return { ...initialResult, ...evaluateArrayNode(valueOfA, valueOfB, options) };
   } if ([valueOfA, valueOfB].every((object) => typeof object === 'object')) {
-    return { ...countedNode, ...evaluateObjectNode(valueOfA, valueOfB, options) };
+    return { ...initialResult, ...evaluateObjectNode(valueOfA, valueOfB, options) };
   }
-  return { ...countedNode, ...evaluateLeaf(valueOfA, valueOfB) };
+  return { ...initialResult, ...evaluateLeaf(valueOfA, valueOfB, options) };
 };
 
 /**
@@ -102,8 +104,9 @@ const evaluateArrayNode = (objA, objB, options) => {
 };
 
 /**
- * Evaluates a node of the JSON tree (or the whole files at the top) by reducing their childrens to the ammount of
+ * Evaluates a node of the JSON tree (or the whole files at the top) by reducing their children to the amount of
  * matched and counted sub-items.
+ * It adjusts the weight to the # of siblings in case the SIBLINGS_PROPORTION option is selected.
  * @param objA is the node on the "left" object to evaluate.
  * @param objB is the node on the "right" object to evaluate.
  * @param options contains all the alternatives for the algorithm, pased dwon from the main scoring function.
@@ -111,8 +114,12 @@ const evaluateArrayNode = (objA, objB, options) => {
  */
 const evaluateObjectNode = (objA, objB, options) => {
   const keys = getUniqueKeys(objA, objB);
+  const weightProportion = options[ELEMENT_WEIGHT] === SIBLINGS_PROPORTION
+    ? keys.length
+    : 1;
+  const weight = (options.weight || 1) / weightProportion;
   return keys.reduce(
-    getScoreReducer(objA, objB, options), { matched: 0, count: 0, children: [] },
+    getScoreReducer(objA, objB, { ...options, weight }), { matched: 0, count: 0, children: [] },
   );
 };
 
@@ -127,9 +134,10 @@ const evaluateObjectNode = (objA, objB, options) => {
  *  }}
  * @param valueOfA
  * @param valueOfB
+ * @param weight determines how much does a match adds to the score..
  */
-const evaluateLeaf = (valueOfA, valueOfB) => ({
-  matched: valueOfA === valueOfB ? 1 : 0,
+const evaluateLeaf = (valueOfA, valueOfB, { weight }) => ({
+  matched: valueOfA === valueOfB ? weight : 0,
   metaData: {
     valueOfA,
     valueOfB,
