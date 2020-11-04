@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/diegopamio/json-similarity-score/compare/v1.9.2...v1.10.0) (2020-11-04)
+
+
+### Features
+
+* add an option to weight elements by the # of siblings instead of # of subnodes ([4792dd8](https://github.com/diegopamio/json-similarity-score/commit/4792dd89f3e577dd61481c4491b7051cd1a16a1d))
+
 ## [1.9.2](https://github.com/diegopamio/json-similarity-score/compare/v1.9.1...v1.9.2) (2020-11-04)
 
 
