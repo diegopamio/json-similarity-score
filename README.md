@@ -66,10 +66,10 @@ If two JSONs has only two keys, and one of them is in both JSON a single number,
 
 Options are:
 * All the nodes weight the same, so a root node with several nested nodes would weight more than the other siblings.
-* Each node at a given level have a weight in the total equal to 1 / the number of sibblings. And its sub-tree nodes add to that fraction only.
- 
-_(Pictue and option setting for this one comming in future releases)_
+![Option 1](public/images/elementWeight-descendantsCount.png)
 
+* Each node at a given level have a weight in the total equal to 1 / the number of siblings. And its sub-tree nodes add to that fraction only.
+![Option 2](public/images/elementWeight-siblingsProportion.png) 
 ## How to count missing branches
 
 If some element is missing in one of the JSON but present in the other, you could choose to count that as:
@@ -78,7 +78,7 @@ If some element is missing in one of the JSON but present in the other, you coul
 * number of root nodes in one side, and 0 in the other.
 * number of all the nested nodes in one side, and 0 in the other.
 
-_(Pictue and option setting for this one comming in future releases)_
+_(Picture and option setting for this one comming in future releases)_
 
 # What it DOESN'T has
 - i18n
@@ -94,7 +94,7 @@ _(Pictue and option setting for this one comming in future releases)_
   * [x] ~~FullStory (to analyze user’s behavior).~~
   * [x] ~~Crisp (as the only support I’ll offer to end users).~~
 * Algorithm options:
-  * [ ] Weighed by level vs weighed by sub-tree size scoring
+  * [x] ~~Weighed by level vs weighed by sub-tree size scoring.~~
   * [x] ~~Order-Forced vs Any-to-any array subtree comparison~~
   * [ ] Counting 0/1 or 0/<subtree size> when some ket is present in only one of the sides
 * UI/Features:

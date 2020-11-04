@@ -7,7 +7,7 @@ import { Grid, useTheme } from '@material-ui/core';
 import * as PropTypes from 'prop-types';
 import { CollapsiblePanel } from '~/components/CollapsiblePanel';
 import { ArrayCompareOptionPanel } from '~/components/OptionsPanel/ArrayCompareOptionPanel';
-import { TabPanel } from '~/components/OptionsPanel/TabPanel';
+import { ElementWeightOptionPanel } from '~/components/OptionsPanel/ElementWeightOptionPanel';
 
 const useStyles = makeStyles({
   root: {
@@ -51,13 +51,8 @@ const TabPanels = ({ index, onChangeIndex }) => {
       index={index}
       onChangeIndex={onChangeIndex}
     >
-      <ArrayCompareOptionPanel value={index} index={0} dir={theme.direction} />
-      <TabPanel value={index} index={1} dir={theme.direction}>
-        Coming soon!
-      </TabPanel>
-      <TabPanel value={index} index={2} dir={theme.direction}>
-        Coming soon!
-      </TabPanel>
+      <ArrayCompareOptionPanel value={index} index={0} />
+      <ElementWeightOptionPanel value={index} index={1} />
     </SwipeableViews>
   );
 };

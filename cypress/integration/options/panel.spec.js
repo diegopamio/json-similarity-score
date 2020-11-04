@@ -14,7 +14,6 @@ describe('the Options panel', () => {
       // assert
       cy.contains('Array Order');
       cy.contains('Depth Weight');
-      cy.contains('Missing Branch');
     });
     it('should have the first option as selected', () => {
       cy.contains('.MuiCardHeader-root', OptionalHeaderTitle).find('button').click();

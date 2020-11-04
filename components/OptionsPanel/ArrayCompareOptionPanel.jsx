@@ -1,9 +1,6 @@
-import Box from '@material-ui/core/Box';
 import React from 'react';
-import { CardContent, CardHeader, Grid } from '@material-ui/core';
-import Card from '@material-ui/core/Card';
-import { TabPanel } from '~/components/OptionsPanel/TabPanel';
-import { OptionsAlternatives } from '~/components/OptionsPanel/OptionsAlternatives';
+import PropTypes from 'prop-types';
+import { OptionsTabPanel } from '~/components/OptionsPanel/OptionsTabPanel';
 import { SCORE_SETTINGS_VALUES, SCORING_SETTINGS_KEYS } from '~/utils/score/constants';
 
 const { ARRAY_POSITION_MATCH } = SCORING_SETTINGS_KEYS;
@@ -19,27 +16,17 @@ const explanation = 'This setting determines whether arrays inside the JSON file
   + ' nature and thus, they may be considered EQUAL when their equal elements are positioned at different'
   + ' indexes.';
 
-export const ArrayCompareOptionPanel = ({ value, index, dir }) => (
-  <TabPanel value={value} index={index} dir={dir}>
-    <Box p={3}>
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={4}>
-          <Card>
-            <CardHeader title="Explanation" />
-            <CardContent>{explanation}</CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={8}>
-          <Card>
-            <CardHeader title="Select Option" />
-            <CardContent>
-              <OptionsAlternatives optionKey={ARRAY_POSITION_MATCH} alternatives={alternatives} />
-            </CardContent>
-          </Card>
-        </Grid>
-      </Grid>
-    </Box>
-  </TabPanel>
+export const ArrayCompareOptionPanel = ({ value, index }) => (
+  <OptionsTabPanel
+    value={value}
+    index={index}
+    explanation={explanation}
+    alternatives={alternatives}
+    optionKey={ARRAY_POSITION_MATCH}
+  />
 );
 
-ArrayCompareOptionPanel.propTypes = TabPanel.propTypes;
+ArrayCompareOptionPanel.propTypes = {
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
