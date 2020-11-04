@@ -68,7 +68,7 @@ Option 1 is faster, option 2 is more aligned with the spirit of arrays. In the a
 If two JSONs has only two keys, and one of them is in both JSON a single number, let's say `3`, but in the other key, they both have a four-level nested json with thousands of arrays, sub-objects, sub-arrays and text and numbers, for which they are only completely different, would you say they are 50% equal (1 out of 2 keys) or almost completely different? 
 
 Options are:
-* All the nodes weight the same, so a root node with several nested nodes would weight more than the other siblings.
+* All the nodes weigh the same, so a root node with several nested nodes would weigh more than the other siblings.
 
 ![Option 1](public/images/elementWeight-descendantsCount.png)
 
