@@ -19,6 +19,8 @@ This open source app is continuously being deployed on every master commit to:
 
 You can freely use it there, download and use it by yourself, or make a pull request to improve the app and its correposnding live server(s).
  
+ ![UI in action](public/images/json-similarity-score.gif)
+
 # Design decisions and overall approaches
 
 _Note: these are all subject to consideration if you find anything better._ 
