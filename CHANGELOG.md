@@ -1,3 +1,10 @@
+## [1.9.2](https://github.com/diegopamio/json-similarity-score/compare/v1.9.1...v1.9.2) (2020-11-04)
+
+
+### Bug Fixes
+
+* allow buymeacoffee to have scripts in their iframes ([cd053ca](https://github.com/diegopamio/json-similarity-score/commit/cd053cae0fe49433aae093fc2518499f8cb2c9ca))
+
 ## [1.9.1](https://github.com/diegopamio/json-similarity-score/compare/v1.9.0...v1.9.1) (2020-11-03)
 
 
