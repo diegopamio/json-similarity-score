@@ -54,8 +54,11 @@ These are the ones I've discovered so far:
 Arrays are naturally unsorted, so in order to compare them, you can choose to:
 
 1. Compare one by one enforcing the need for them to have the same index in order to be considered equal.
+
 ![Option 1](public/images/arrayPositionMatch-strict.png)
+
 2. Making a permutation of each possible position and matching between the elements of each one of the arrays and keeping the best one as the overall score.
+
 ![Option 2](public/images/arrayPositionMatch-flex.png)
 
 Option 1 is faster, option 2 is more aligned with the spirit of arrays. In the app, there is an option setting to decide which one to use.
@@ -66,10 +69,13 @@ If two JSONs has only two keys, and one of them is in both JSON a single number,
 
 Options are:
 * All the nodes weight the same, so a root node with several nested nodes would weight more than the other siblings.
+
 ![Option 1](public/images/elementWeight-descendantsCount.png)
 
 * Each node at a given level have a weight in the total equal to 1 / the number of siblings. And its sub-tree nodes add to that fraction only.
+
 ![Option 2](public/images/elementWeight-siblingsProportion.png) 
+
 ## How to count missing branches
 
 If some element is missing in one of the JSON but present in the other, you could choose to count that as:
