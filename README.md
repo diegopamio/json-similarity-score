@@ -25,13 +25,17 @@ You can freely use it there, download and use it by yourself, or make a pull req
 
 _Note: these are all subject to consideration if you find anything better._ 
 
-## Some tech stack decisions 
+## Some tech stack and library decisions 
 
 * Used `npm`, though would be ok to use `yarn`, just because I'm used to and the things that were awful to me of `npm` in comparison with `yarn` have been resolved.
   
 *  Used `material-ui` for stying as the project doesn't require any special styling so any decent UI styling library would suffice.
   
 *  In other circumstances, I'd rather use either `emotionjs` or `styled-components`, but with the css-in-js solution from `material-ui` I'm so far comfortable.
+
+* Used `useContext` instead of `redux` for application state as it has quite simple state management needs.
+
+* Used [Ace Editor](https://ace.c9.io) for the inline edition of JSONs (thanks to @jchonde for the [issue comment](https://github.com/securingsincity/react-ace/issues/725#issuecomment-604996470) that helped on nextjs integration). 
 
 ## Code Quality tools:
 
@@ -104,7 +108,7 @@ _(Picture and option setting for this one comming in future releases)_
   * [x] ~~Order-Forced vs Any-to-any array subtree comparison~~
   * [ ] Counting 0/1 or 0/<subtree size> when some ket is present in only one of the sides
 * UI/Features:
-  * [ ] Able to edit JSON files inline in the app.
+  * [x] ~~Able to edit JSON files inline in the app.~~
   * [ ] Able to have different comparisons at once with “tabs”.
   * [ ] Save comparison analysis
   * [ ] Algorithm options guidance and explanation.
@@ -113,6 +117,12 @@ _(Picture and option setting for this one comming in future releases)_
 * Monetization:
   * [x] ~~BuyMeACoffee integration.~~
   * [ ] AdSense integration.
+  * [ ] Publicity
+    * [ ] AdWords
+    * [ ] Facebook
+    * [ ] Organic (kekyword, meta, Google Web Tools)
+    * [ ] Quora Question / Answers
+    * [ ] Stackoverflow / Answers
 * Other:
   * [x] ~~Do a proper README.md beyond the badges galore.~~
   * [ ] Make it a PWA.

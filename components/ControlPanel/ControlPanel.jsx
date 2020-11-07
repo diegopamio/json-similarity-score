@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { Button, Grid } from '@material-ui/core';
 import CompareIcon from '@material-ui/icons/Compare';
@@ -10,10 +10,12 @@ import { ScoreCard } from '~/components/ScoreCard';
 import { OptionsPanel } from '~/components/OptionsPanel/OptionsPanel';
 import { DEFAULT_OPTIONS } from '~/utils/score/calculateScore';
 import { OptionsProvider } from '~/components/ControlPanel/OptionsContext';
+import { JsonFilesContext } from '~/contexts/JsonFilesContext';
 
 export const ControlPanel = ({ onScoreChange }) => {
-  const [jsonA, setJsonA] = useState();
-  const [jsonB, setJsonB] = useState();
+  const {
+    jsonA, jsonB, setJsonA, setJsonB,
+  } = useContext(JsonFilesContext);
   const [scoringResults, setScoringResults] = useState({});
   const [options, setOptions] = useState(DEFAULT_OPTIONS);
   const [errorMessage, setErrorMessage] = useState('');
