@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/diegopamio/json-similarity-score/compare/v1.10.0...v1.11.0) (2020-11-07)
+
+
+### Features
+
+* add json editor for the files ([f02d532](https://github.com/diegopamio/json-similarity-score/commit/f02d5325073628667587d14711bc5c6d0520e7d7))
+
 # [1.10.0](https://github.com/diegopamio/json-similarity-score/compare/v1.9.2...v1.10.0) (2020-11-04)
 
 
