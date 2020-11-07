@@ -85,7 +85,7 @@ describe('the Edit JSONs panel', () => {
 
       // act
       cy.get('.ace_text-input')
-        .first().focus().type('{leftarrow}, "newKey": "newValue" ');
+        .first().focus().type('{rightarrow}"newKey": "newValue", ');
       cy.contains('Compare').click();
 
       // assert
