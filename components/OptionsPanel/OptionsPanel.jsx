@@ -31,7 +31,6 @@ const OptionsTabs = ({ value, onChange }) => {
       >
         <Tab label="Array Order" />
         <Tab label="Depth Weight" />
-        <Tab label="Missing Branch" />
       </Tabs>
     </Grid>
   );
