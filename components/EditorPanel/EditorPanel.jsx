@@ -5,16 +5,19 @@ import { CollapsiblePanel } from '~/components/CollapsiblePanel';
 import { JsonFilesContext } from '~/contexts/JsonFilesContext';
 import { CodeEditor } from '~/components/EditorPanel/CodeEditor';
 
+const getStandardBorder = (theme) => ({
+  borderStyle: 'solid',
+  borderColor: theme.palette.primary.main,
+});
+
 const useStyles = makeStyles((theme) => ({
   editorLeft: {
     borderRightWidth: 0,
-    borderStyle: 'solid',
-    borderColor: theme.palette.primary.main,
+    ...getStandardBorder(theme),
   },
   editorRight: {
     borderLeftWidth: 1,
-    borderStyle: 'solid',
-    borderColor: theme.palette.primary.main,
+    ...getStandardBorder(theme),
   },
 }));
 
@@ -30,24 +33,16 @@ export const EditorPanel = () => {
   ];
 
   return (
-    <CollapsiblePanel
-      separator
-      title="Edit JSONs"
-    >
+    <CollapsiblePanel separator title="Edit JSONs">
       <Grid container spacing={0}>
         {
           files.map(({ name, json, setJson }) => (
             <Grid key={name} item xs={12} sm={6} className={classes[`editor${name}`]}>
-              <CodeEditor
-                json={json}
-                onChange={setJson}
-                name={name}
-              />
+              <CodeEditor json={json} onChange={setJson} name={name} />
             </Grid>
           ))
         }
       </Grid>
-
     </CollapsiblePanel>
   );
 };
