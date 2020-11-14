@@ -1,3 +1,10 @@
+## [1.11.1](https://github.com/diegopamio/json-similarity-score/compare/v1.11.0...v1.11.1) (2020-11-14)
+
+
+### Bug Fixes
+
+* set files limit to 1 ([c597fbf](https://github.com/diegopamio/json-similarity-score/commit/c597fbfdf431d8c9a69952ebe1cd33fe9a5af57b))
+
 # [1.11.0](https://github.com/diegopamio/json-similarity-score/compare/v1.10.0...v1.11.0) (2020-11-07)
 
 
