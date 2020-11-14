@@ -19,6 +19,18 @@ describe('control pannel', () => {
           cy.contains(dropzoneName).parent().parent().contains(fileName);
         });
       });
+      context.only('when an invalid file is dropped into', () => {
+        it('should show an error toss at the bottom', () => {
+          // arrange
+          const fileName = 'non-json-file.png';
+
+          // act
+          cy.drop(dropzoneName, fileName);
+
+          // assert
+          cy.contains('File type not supported');
+        });
+      });
     }));
   });
   describe('"Compare" button', () => {

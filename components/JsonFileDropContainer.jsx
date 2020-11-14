@@ -35,7 +35,7 @@ export const JsonFileDropContainer = ({ onChange, text }) => {
         onChange={onChange}
         useChipsForPreview
         dropzoneText={text}
-        filesLimit={0}
+        filesLimit={1}
         Icon={FileCopyTwoToneIcon}
         dropzoneClass={classes.dropzone}
         getFileAddedMessage={(fileName) => `${fileName} successfully added.`}
