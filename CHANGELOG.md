@@ -1,3 +1,10 @@
+## [1.11.2](https://github.com/diegopamio/json-similarity-score/compare/v1.11.1...v1.11.2) (2020-11-15)
+
+
+### Bug Fixes
+
+* add margin at the bottom so fabs doesn't overlap with page content ([46a732e](https://github.com/diegopamio/json-similarity-score/commit/46a732e89fc53a0f24d15383796a587d79421bb5))
+
 ## [1.11.1](https://github.com/diegopamio/json-similarity-score/compare/v1.11.0...v1.11.1) (2020-11-14)
 
 
