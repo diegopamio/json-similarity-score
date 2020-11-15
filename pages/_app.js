@@ -7,6 +7,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import GitHubForkRibbon from 'react-github-fork-ribbon';
 import * as FullStory from '@fullstory/browser';
 import dynamic from 'next/dynamic';
+import { Box } from '@material-ui/core';
 import theme from '../styles/theme';
 
 const CommonHead = () => (
@@ -90,6 +91,7 @@ export default function MyApp(props) {
           Fork me on GitHub
         </GitHubForkRibbon>
         <Component {...pageProps} />
+        <Box mb={15} />
       </ThemeProvider>
     </>
   );
